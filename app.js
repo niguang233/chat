@@ -8,6 +8,7 @@ app.use(express.static('public'));
 
 io.on('connection',function(socket){
     socket.on('message',function(msg){
+        msg.date = new Date();
         io.emit('message', msg);
     });
 });
